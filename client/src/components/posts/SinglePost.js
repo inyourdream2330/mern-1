@@ -40,8 +40,8 @@ const SinglePost = ({ post: { _id, status, title, description, url } }) => {
         </Card.Title>
         <Card.Text>{description}</Card.Text>
         <iframe
-          width="560"
-          height="315"
+          width="100%"
+          height="100%"
           src="https://www.youtube.com/embed/lsbUwKD3BQY"
           title="YouTube video player"
           frameborder="0"
