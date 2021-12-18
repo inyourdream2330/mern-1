@@ -10,6 +10,8 @@ import {
   GET_POST_BY_ID,
   POST_VIDEO,
   CLOSE_POST_VIDEO,
+  VIDEO_LIGHT_ON,
+  VIDEO_LIGHT_OFF,
 } from "./constants";
 import axios from "axios";
 
@@ -19,6 +21,7 @@ const PostContextProvider = ({ children }) => {
   //State
   const [postState, dispatch] = useReducer(postReducer, {
     isPostVideo: false,
+    videoLight: false,
     post: null,
     posts: [],
     postsLoading: true,
@@ -106,6 +109,15 @@ const PostContextProvider = ({ children }) => {
   const closePostVideo = () => {
     dispatch({ type: CLOSE_POST_VIDEO });
   };
+
+  const lightOn = () => {
+    console.log("light is on");
+    dispatch({ type: VIDEO_LIGHT_ON });
+  };
+  const lightOff = () => {
+    console.log("light is off");
+    dispatch({ type: VIDEO_LIGHT_OFF });
+  };
   // Post context data
   const postContextData = {
     postState,
@@ -124,6 +136,8 @@ const PostContextProvider = ({ children }) => {
     setShowVideoModal,
     getPostVideo,
     closePostVideo,
+    lightOn,
+    lightOff,
   };
 
   return (

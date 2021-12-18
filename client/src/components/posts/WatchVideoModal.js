@@ -1,15 +1,20 @@
-import React, { useContext, useState } from "react";
-import Modal from "react-bootstrap/Modal";
+import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import { PostContext } from "../../contexts/PostContext";
-import { toast } from "react-toastify";
+import Modal from "react-bootstrap/Modal";
 import "react-toastify/dist/ReactToastify.css";
+import { PostContext } from "../../contexts/PostContext";
 import VideoEmbbed from "./VideoEmbbed";
 const AddPostModal = () => {
   // context
-  const { setShowVideoModal, showVideoModal, closePostVideo } =
-    useContext(PostContext);
+  const {
+    setShowVideoModal,
+    showVideoModal,
+    closePostVideo,
+    lightOn,
+    lightOff,
+    postState: { videoLight },
+  } = useContext(PostContext);
+
   const closeDialog = () => {
     setShowVideoModal(false);
     closePostVideo();
@@ -17,14 +22,24 @@ const AddPostModal = () => {
   // state
 
   return (
-    <Modal show={true} onHide={closeDialog} centered={true} fullscreen={true}>
-      <Modal.Header className="text-center">
-        <Modal.Title>Enjoy ^^</Modal.Title>
+    <Modal
+      show={showVideoModal}
+      onHide={closeDialog}
+      centered={true}
+      fullscreen={true}
+    >
+      <Modal.Header
+        className={`d-table text-center ${videoLight ? "bg-light-off" : ""}`}
+      >
+        <Modal.Title>Happy Watching ^^</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body className={videoLight ? "bg-light-off" : ""}>
         <VideoEmbbed />
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer className={videoLight ? "bg-light-off" : ""}>
+        <Button variant="warning" onClick={videoLight ? lightOff : lightOn}>
+          Light {videoLight ? "On" : "Off"}
+        </Button>
         <Button variant="secondary" onClick={closeDialog}>
           Close
         </Button>

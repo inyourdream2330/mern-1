@@ -13,3 +13,5 @@ export const UPDATE_POST = "UPDATE_POST";
 export const GET_POST_BY_ID = "GET_POST_BY_ID";
 export const POST_VIDEO = "POST_VIDEO";
 export const CLOSE_POST_VIDEO = "CLOSE_POST_VIDEO";
+export const VIDEO_LIGHT_OFF = "VIDEO_LIGHT_OFF";
+export const VIDEO_LIGHT_ON = "VIDEO_LIGHT_ON";

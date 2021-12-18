@@ -86,7 +86,7 @@ const Dashboard = () => {
     <>
       {body}
       {post !== null && !isPostVideo && <UpdatePostModal />}
-      {post !== null && isPostVideo && <WatchVideoModal />}
+      <WatchVideoModal />
       <ToastContainer />
       <AddPostModal />
     </>

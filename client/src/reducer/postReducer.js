@@ -7,6 +7,8 @@ import {
   GET_POST_BY_ID,
   POST_VIDEO,
   CLOSE_POST_VIDEO,
+  VIDEO_LIGHT_OFF,
+  VIDEO_LIGHT_ON,
 } from "../contexts/constants";
 export const postReducer = (state, action) => {
   const { type, payload } = action;
@@ -64,6 +66,16 @@ export const postReducer = (state, action) => {
       return {
         ...state,
         isPostVideo: false,
+      };
+    case VIDEO_LIGHT_ON:
+      return {
+        ...state,
+        videoLight: true,
+      };
+    case VIDEO_LIGHT_OFF:
+      return {
+        ...state,
+        videoLight: false,
       };
 
     default:
