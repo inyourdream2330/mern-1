@@ -42,6 +42,7 @@ const UpdatePostModal = () => {
     event.preventDefault();
     const { success, message } = await updatePost(updatedPost);
     notify(success, message);
+    closeDialog();
   };
 
   return (
