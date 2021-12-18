@@ -11,13 +11,13 @@ const User = require("../models/User");
 // @access Public
 router.get("/", addCors, verifyToken, async (req, res) => {
   try {
+    res.header("Access-Control-Allow-Origin", "*");
     const user = await User.findById(req.userId).select("-password");
     if (!user) {
       return res
         .status(400)
         .json({ success: false, message: "user not found" });
     }
-    res.header("Access-Control-Allow-Origin", "*");
 
     res.json({ success: true, user });
   } catch (error) {
