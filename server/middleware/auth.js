@@ -1,4 +1,3 @@
-require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const veryfyToken = (req, res, next) => {
   const authHeader = req.header("Authorization");
