@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 app.use(express.json());
-app.use(cors());
 
 const authRouter = require("./routes/auth.js");
 const postRouter = require("./routes/post.js");
@@ -31,6 +30,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/posts", postRouter);
 
 const PORT = 5000;
+app.use(cors());
 
 app.listen(PORT, () => {
   console.log(`server run on port ${PORT}`);
