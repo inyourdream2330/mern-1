@@ -1,0 +1,55 @@
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+
+{
+    "username":"quynh",
+    "password":"quynh"
+}
+### 
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+
+{
+    "username":"tunglam1",
+    "password":"12345"
+}
+
+###
+POST http://localhost:5000/api/posts
+Content-Type: application/json
+Authorization: Berear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWFmOTEwMTQwNGFmYjllMWI0M2Q4ZWYiLCJpYXQiOjE2Mzg4OTU4NzN9.YarRJTjri29LMsro7uow8mfguhW77eoxaIPrdBmTcOU
+
+{
+    "title":"React23",
+    "description":"React23",
+    "url":"react.com"
+}
+###
+GET http://localhost:5000/api/posts
+Content-Type: application/json
+Authorization: Berear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWFmOTEwMTQwNGFmYjllMWI0M2Q4ZWYiLCJpYXQiOjE2Mzg4OTU4NzN9.YarRJTjri29LMsro7uow8mfguhW77eoxaIPrdBmTcOU
+###
+PUT http://localhost:5000/api/posts/61bb98e5a3482f3a05c11d64
+Content-Type: application/json
+Authorization: Berear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWFmOTEwMTQwNGFmYjllMWI0M2Q4ZWYiLCJpYXQiOjE2Mzg4OTU4NzN9.YarRJTjri29LMsro7uow8mfguhW77eoxaIPrdBmTcOU
+
+{
+    "title":"Vue123 da up date",
+    "description":"Vue123",
+    "url":"vue.com"
+}
+
+###
+DELETE  http://localhost:5000/api/posts/61af91b0404afb9e1b43d8f3
+Content-Type: application/json
+Authorization: Berear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWFmOTEwMTQwNGFmYjllMWI0M2Q4ZWYiLCJpYXQiOjE2Mzg4OTU4NzN9.YarRJTjri29LMsro7uow8mfguhW77eoxaIPrdBmTcOU
+
+
+
+
+###
+GET http://localhost:5000/api/auth/
+Content-Type: application/json
+Authorization: Berear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWFlNTc3ZmYzOTYxYjg3OGU2YmVhYjQiLCJpYXQiOjE2Mzk0OTk3MDh9.a0H0gMledOLY-hv5rBdnfaXLacMzjJ3h5v8YN-svGLY
