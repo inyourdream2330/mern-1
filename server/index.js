@@ -25,7 +25,10 @@ const connectDB = async () => {
 };
 
 connectDB();
-
+app.get("/", (req, res) => {
+  res.set("Access-Control-Allow-Origin", "*");
+  res.send({ msg: "This has CORS enabled 🎈" });
+});
 app.use("/api/auth", authRouter);
 app.use("/api/posts", postRouter);
 
