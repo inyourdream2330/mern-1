@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 import playIcon from "../../assets/play-btn.svg";
 import editIcon from "../../assets/pencil.svg";
 import deleteIcon from "../../assets/trash.svg";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import React, { useContext } from "react";
 import { PostContext } from "../../contexts/PostContext";

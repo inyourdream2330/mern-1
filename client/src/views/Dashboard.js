@@ -12,7 +12,6 @@ import AddPostModal from "../components/posts/AddPostModal";
 import addIcon from "../assets/plus-circle-fill.svg";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
-import Toast from "react-bootstrap/Toast";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import UpdatePostModal from "../components/posts/UpdatePostModal";
@@ -28,8 +27,6 @@ const Dashboard = () => {
     postState: { posts, postLoading, post },
     getPosts,
     setShowAddPostModal,
-    showToast: { show, message, type },
-    setShowToast,
   } = useContext(PostContext);
   // Start: get all posts
   useEffect(() => getPosts(), []);

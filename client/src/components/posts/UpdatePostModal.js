@@ -42,18 +42,8 @@ const UpdatePostModal = () => {
     event.preventDefault();
     const { success, message } = await updatePost(updatedPost);
     notify(success, message);
-    // resetPostData();
   };
 
-  //   const resetPostData = () => {
-  //     setUpdatePost({
-  //       title: "",
-  //       description: "",
-  //       url: "",
-  //       status: "TO LEARN",
-  //     });
-  //     setShowAddPostModal(false);
-  //   };
   return (
     <Modal show={showUpdatePostModal} onHide={closeDialog}>
       <Modal.Header closeButton>
@@ -115,7 +105,7 @@ const UpdatePostModal = () => {
             Cancel
           </Button>
           <Button variant="primary" type="submit">
-            Get started !!
+            Update
           </Button>
         </Modal.Footer>
       </Form>
