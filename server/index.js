@@ -1,8 +1,15 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-const cors = require("cors");
 const app = express();
+const cors = require("cors");
+const corsOptions = {
+  origin: "*",
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions)); // Use this after the variable declaration
 
 const authRouter = require("./routes/auth.js");
 const postRouter = require("./routes/post.js");
@@ -12,7 +19,7 @@ var http = require("http");
 var server = http.createServer(function (request, response) {
   // Thiết lập Header
   response.writeHead(200, {
-    "Context-type": "text/html",
+    "Context-type": "text/htmlon",
   });
   response.end();
 });
@@ -35,7 +42,7 @@ const connectDB = async () => {
 connectDB();
 
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
 
 app.use("/api/auth", authRouter);
 app.use("/api/posts", postRouter);
