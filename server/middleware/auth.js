@@ -1,7 +1,5 @@
 const jwt = require("jsonwebtoken");
 const veryfyToken = (req, res, next) => {
-  console.log("fixed cors");
-  res.set("Access-Control-Allow-Origin", "*");
   const authHeader = req.header("Authorization");
   const token = authHeader && authHeader.split(" ")[1];
 

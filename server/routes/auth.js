@@ -4,11 +4,12 @@ const router = express.Router();
 const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
 const verifyToken = require("../middleware/auth.js");
+const addCors = require("../middleware/addCors");
 const User = require("../models/User");
 // @route GET api/ath
 // @desc Check if user is logged in
 // @access Public
-router.get("/", verifyToken, async (req, res) => {
+router.get("/", addCors, verifyToken, async (req, res) => {
   try {
     const user = await User.findById(req.userId).select("-password");
     if (!user) {
@@ -28,7 +29,7 @@ router.get("/", verifyToken, async (req, res) => {
 // @route POST api/auth/register
 // @desc Register user
 // @access Public
-router.post("/register", async (req, res) => {
+router.post("/register", addCors, async (req, res) => {
   const { username, password } = req.body;
   //Simple validation
   if (!username || !password) {
@@ -70,7 +71,7 @@ router.post("/register", async (req, res) => {
 // @route POST api/auth/login
 // @desc login user
 // @access Public
-router.post("/login", async (req, res) => {
+router.post("/login", addCors, async (req, res) => {
   const { username, password } = req.body;
   //Simple validation
   if (!username || !password) {

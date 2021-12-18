@@ -2,11 +2,11 @@ const express = require("express");
 const router = express.Router();
 const Post = require("../models/Post.js");
 const verifyToken = require("../middleware/auth.js");
-
+const addCors = require("../middleware/addCors");
 // @route GET api/posts
 // @desc GET posts
 // @access Private
-router.get("/", verifyToken, async (req, res) => {
+router.get("/", addCors, verifyToken, async (req, res) => {
   try {
     const posts = await Post.find({ user: req.userId }).populate("user", [
       "username",
@@ -22,7 +22,7 @@ router.get("/", verifyToken, async (req, res) => {
 // @route POST api/posts
 // @desc Create post
 // @access Private
-router.post("/", verifyToken, async (req, res) => {
+router.post("/", addCors, verifyToken, async (req, res) => {
   const { title, description, url, status } = req.body;
   //   Simple validation
   if (!title) {
@@ -56,7 +56,7 @@ router.post("/", verifyToken, async (req, res) => {
 // @desc Update post
 // @access Private
 
-router.put("/:id", verifyToken, async (req, res) => {
+router.put("/:id", addCors, verifyToken, async (req, res) => {
   const { title, description, url, status } = req.body;
   //   Simple validation
   if (!title) {
@@ -98,7 +98,7 @@ router.put("/:id", verifyToken, async (req, res) => {
 // @desc Delete post
 // @access Private
 
-router.delete("/:id", verifyToken, async (req, res) => {
+router.delete("/:id", addCors, verifyToken, async (req, res) => {
   const postDeleteCondition = { _id: req.params.id, user: req.userId };
   const deletedPost = await Post.findOneAndDelete(postDeleteCondition);
   // User not authorised to update post or post not found
