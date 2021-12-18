@@ -1,7 +1,7 @@
 export const apiUrl =
   process.env.NODE_ENV !== "production"
-    ? "https://radiant-river-04356.herokuapp.com/https://shielded-refuge-02682.herokuapp.com/api"
-    : "https://rocky-reef-14047.herokuapp.com/api";
+    ? "https://localhost:5000/api"
+    : "https://shielded-refuge-02682.herokuapp.com/api";
 
 export const LOCAL_STORAGE_TOKEN_NAME = "learnit-mern";
 
