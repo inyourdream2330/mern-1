@@ -20,6 +20,7 @@ var server = http.createServer(function (request, response) {
   // Thiết lập Header
   response.writeHead(200, {
     "Context-type": "text/htmlon",
+    author: "thehalfheart@gmail.com",
   });
   response.end();
 });
