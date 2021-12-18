@@ -25,8 +25,13 @@ const connectDB = async () => {
 connectDB();
 
 app.use(express.json());
-app.options("*", cors());
-app.use(cors());
+// app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 
 app.use("/api/auth", authRouter);
 app.use("/api/posts", postRouter);
