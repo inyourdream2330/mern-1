@@ -9,10 +9,8 @@ const User = require("../models/User");
 // @route GET api/ath
 // @desc Check if user is logged in
 // @access Public
-router.get("/", addCors, verifyToken, async (req, res) => {
+router.get("/", verifyToken, async (req, res) => {
   try {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.set("Access-Control-Allow-Origin", "*");
     const user = await User.findById(req.userId).select("-password");
     if (!user) {
       return res

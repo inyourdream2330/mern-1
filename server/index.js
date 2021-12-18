@@ -2,8 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const app = express();
-app.use(express.json());
 
 const authRouter = require("./routes/auth.js");
 const postRouter = require("./routes/post.js");
@@ -22,6 +20,8 @@ const connectDB = async () => {
     process.exit(1);
   }
 };
+const app = express();
+app.use(express.json());
 app.use(cors());
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -39,6 +39,6 @@ app.use("/api/posts", postRouter);
 
 const PORT = 5000;
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log(`server run on port ${PORT}`);
 });

@@ -27,7 +27,7 @@ Authorization: Berear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWFmO
     "url":"react.com"
 }
 ###
-GET http://localhost:5000/api/posts
+GET https://shielded-refuge-02682.herokuapp.com/api/post
 Content-Type: application/json
 Authorization: Berear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWFmOTEwMTQwNGFmYjllMWI0M2Q4ZWYiLCJpYXQiOjE2Mzg4OTU4NzN9.YarRJTjri29LMsro7uow8mfguhW77eoxaIPrdBmTcOU
 ###
