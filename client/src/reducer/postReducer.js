@@ -5,6 +5,8 @@ import {
   DELETE_POST,
   UPDATE_POST,
   GET_POST_BY_ID,
+  POST_VIDEO,
+  CLOSE_POST_VIDEO,
 } from "../contexts/constants";
 export const postReducer = (state, action) => {
   const { type, payload } = action;
@@ -49,6 +51,19 @@ export const postReducer = (state, action) => {
       return {
         ...state,
         post: payload,
+      };
+
+    case POST_VIDEO:
+      return {
+        ...state,
+        post: payload,
+        isPostVideo: true,
+      };
+
+    case CLOSE_POST_VIDEO:
+      return {
+        ...state,
+        isPostVideo: false,
       };
 
     default:

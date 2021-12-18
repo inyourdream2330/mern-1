@@ -15,6 +15,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import UpdatePostModal from "../components/posts/UpdatePostModal";
+import WatchVideoModal from "../components/posts/WatchVideoModal";
 const Dashboard = () => {
   // Context
   const {
@@ -24,7 +25,7 @@ const Dashboard = () => {
   } = useContext(AuthContext);
 
   const {
-    postState: { posts, postLoading, post },
+    postState: { posts, postLoading, post, isPostVideo },
     getPosts,
     setShowAddPostModal,
   } = useContext(PostContext);
@@ -84,7 +85,8 @@ const Dashboard = () => {
   return (
     <>
       {body}
-      {post !== null && <UpdatePostModal />}
+      {post !== null && !isPostVideo && <UpdatePostModal />}
+      {post !== null && isPostVideo && <WatchVideoModal />}
       <ToastContainer />
       <AddPostModal />
     </>

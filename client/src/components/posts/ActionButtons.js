@@ -8,13 +8,25 @@ import React, { useContext } from "react";
 import { PostContext } from "../../contexts/PostContext";
 
 const ActionButtons = ({ url, _id }) => {
-  const { deletePost, getUpdatePost, setShowUpdatePostModal } =
-    useContext(PostContext);
+  const {
+    deletePost,
+    getUpdatePost,
+    setShowUpdatePostModal,
+    setShowVideoModal,
+    postState: { isPostVideo },
+    getPostVideo,
+  } = useContext(PostContext);
 
   const choosePost = (postId) => {
     getUpdatePost(postId);
     setShowUpdatePostModal(true);
   };
+
+  const chooseVideo = (postId) => {
+    getPostVideo(postId);
+    setShowVideoModal(true);
+  };
+
   const toastDelete = () =>
     toast.success("Delete success 🗑️", {
       position: "top-right",
@@ -28,9 +40,10 @@ const ActionButtons = ({ url, _id }) => {
     <>
       <Button
         className="post-button"
-        href={url}
-        target="_blank"
-        rel="noreferrer"
+        // href={url}
+        // target="_blank"
+        // rel="noreferrer"
+        onClick={chooseVideo.bind(this, _id)}
       >
         <img src={playIcon} alt="play" className="app-logo-32" href={url} />
       </Button>

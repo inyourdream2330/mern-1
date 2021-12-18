@@ -39,15 +39,6 @@ const SinglePost = ({ post: { _id, status, title, description, url } }) => {
           </Row>
         </Card.Title>
         <Card.Text>{description}</Card.Text>
-        <iframe
-          width="100%"
-          height="100%"
-          src="https://www.youtube.com/embed/lsbUwKD3BQY"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
       </Card.Body>
     </Card>
   );

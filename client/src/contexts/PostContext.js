@@ -8,6 +8,8 @@ import {
   DELETE_POST,
   UPDATE_POST,
   GET_POST_BY_ID,
+  POST_VIDEO,
+  CLOSE_POST_VIDEO,
 } from "./constants";
 import axios from "axios";
 
@@ -16,6 +18,7 @@ export const PostContext = createContext();
 const PostContextProvider = ({ children }) => {
   //State
   const [postState, dispatch] = useReducer(postReducer, {
+    isPostVideo: false,
     post: null,
     posts: [],
     postsLoading: true,
@@ -29,6 +32,7 @@ const PostContextProvider = ({ children }) => {
 
   const [showAddPostModal, setShowAddPostModal] = useState(false);
   const [showUpdatePostModal, setShowUpdatePostModal] = useState(false);
+  const [showVideoModal, setShowVideoModal] = useState(false);
   //   Get all posts
   const getPosts = async () => {
     try {
@@ -90,9 +94,17 @@ const PostContextProvider = ({ children }) => {
   };
   // Get post update id
   const getUpdatePost = (postId) => {
-    debugger;
     const post = postState.posts.find((post) => post._id === postId);
     dispatch({ type: GET_POST_BY_ID, payload: post });
+  };
+  // Get post video
+  const getPostVideo = (postId) => {
+    const post = postState.posts.find((post) => post._id === postId);
+    dispatch({ type: POST_VIDEO, payload: post });
+  };
+
+  const closePostVideo = () => {
+    dispatch({ type: CLOSE_POST_VIDEO });
   };
   // Post context data
   const postContextData = {
@@ -108,6 +120,10 @@ const PostContextProvider = ({ children }) => {
     getUpdatePost,
     showUpdatePostModal,
     setShowUpdatePostModal,
+    showVideoModal,
+    setShowVideoModal,
+    getPostVideo,
+    closePostVideo,
   };
 
   return (
