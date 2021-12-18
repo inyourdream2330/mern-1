@@ -3,7 +3,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
-app.use(express.json());
 
 const authRouter = require("./routes/auth.js");
 const postRouter = require("./routes/post.js");
@@ -25,10 +24,11 @@ const connectDB = async () => {
 
 connectDB();
 
-app.get("/", (req, res) => res.send("hello"));
+app.use(express.json());
+app.use(cors());
+
 app.use("/api/auth", authRouter);
 app.use("/api/posts", postRouter);
-app.use(cors());
 
 const PORT = 5000;
 
