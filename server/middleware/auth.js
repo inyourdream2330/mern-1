@@ -9,7 +9,7 @@ const veryfyToken = (req, res, next) => {
       .json({ success: false, message: "Access token not found" });
   }
   try {
-    const decoded = jwt.verify(token, "sontungdenvauhkt");
+    const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
     req.userId = decoded.userId;
     next();
   } catch (error) {
