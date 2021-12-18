@@ -37,11 +37,6 @@ connectDB();
 
 app.use(express.json());
 app.use(cors());
-  cors({
-    origin: "http://localhost:3000",
-    credentials: true,
-  })
-);
 
 app.use("/api/auth", authRouter);
 app.use("/api/posts", postRouter);
